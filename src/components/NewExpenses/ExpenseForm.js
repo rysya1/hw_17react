@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import './ExpenseForm.css';
-
+import User from './User'
 const ExpenseForm = (props) => {
     const [title, setTitle] = useState('');
     const [amount, setAmount] = useState('');
     const [date, setDate] = useState('');
+    const [showUsers, setShowUsers] = useState(true);
 
   const titleChangeHandler = (event) => { //бул обработчик событий
     setTitle(event.target.value)
@@ -29,7 +30,10 @@ const ExpenseForm = (props) => {
     }
     props.onSaveExpenseData(expenseData) //биз бул жерде NewExpenses те тузулгон функцияны бул жерге чакырып койдук
   };
-
+  
+  // const usersList = (users) => (
+    
+  // );
   return (
     <form onSubmit={submitHandler}>
       <div className="new-expense__controls">
@@ -47,7 +51,8 @@ const ExpenseForm = (props) => {
         </div>
       </div>
       <div className="new-expense__actions">
-        <button type="submit">Add Expense</button>
+        <button onClick={props.onToggle}>Cancel</button> <button type="submit" >  Add Expense</button>
+        {/* {showUsers && usersList} onClick={toggleUsersHandler}*/}
       </div>
     </form>
   );
