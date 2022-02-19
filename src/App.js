@@ -32,9 +32,11 @@ const GET_INIT = [
 const App = () => {
 	const [expenses, setExpenses] = useState(GET_INIT)
 	const [isLoading, setIsLoading] = useState(false)
+	const [sohr,setSohr] = useState(false)
 	const [error, setError] = useState(null)
 
 	const fetchMoviesHandler = useCallback(async () => {
+		
 		setIsLoading(true)
 		setError(null)
 		try {
@@ -63,9 +65,11 @@ const App = () => {
 			setError(error.message)
 		}
 		setIsLoading(false)
+		
 	}, [])
 
 	async function addExpenseHandler(expense) {
+		setSohr(true)
 		const response = await fetch(
 			'https://react-http-expenses-bd5f0-default-rtdb.firebaseio.com/expenses.json',
 			{
@@ -77,6 +81,7 @@ const App = () => {
 			},
 		)
 		const data = await response.json()
+		setSohr(false)
 	}
 
 	function removeTask(remove) {
@@ -91,7 +96,9 @@ const App = () => {
 	if (error) {
 		content = <p className='new-expense'>{error}</p>
 	}
-
+	if (sohr) {
+		content = <p className='new-expense'>Data saved successfully.</p>;
+	}
 	if (isLoading) {
 		content = (
 			<div className='cont'>
