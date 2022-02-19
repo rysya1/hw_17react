@@ -24,16 +24,13 @@ const ExpenseForm = (props) => {
    
     const expenseData = { //азыр бул жакта NewExpensesтин ичиндеги expenseDataга в качестве объекта барып калды 
       //shortCard провописание болду 
-      title,
-      amount,
-      date: new Date(date)
+      title:title,
+      amount:amount,
+      date: date
     }
     props.onSaveExpenseData(expenseData) //биз бул жерде NewExpenses те тузулгон функцияны бул жерге чакырып койдук
   };
   
-  // const usersList = (users) => (
-    
-  // );
   return (
     <form onSubmit={submitHandler}>
       <div className="new-expense__controls">

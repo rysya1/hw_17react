@@ -1,7 +1,13 @@
 .expenses {
-  padding: 1rem;
-  background-color: #40005d;
-  margin: 2rem auto;
-  width: 50rem;
-  max-width: 95%;
+	padding: 1rem;
+	background-color: #40005d;
+	margin: 2rem auto;
+	width: 50rem;
+	max-width: 95%;
+}
+.delete {
+  
+	background-color: red;
+	border: none;
+	border-radius: 3px;
 }
